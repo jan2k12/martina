@@ -1,0 +1,100 @@
+* {
+    margin:0px;
+    padding:0px;
+}
+
+html, body{
+    height:100%;       
+    font-family: sans-serif;
+}
+
+h1{
+    font-size:35px;
+    color:#334800;
+}
+.header{
+    background-image: url('img/header.gif');
+    height:146px;
+}
+
+.header span.green{
+    color:#334800;
+}
+.header span{
+    font-size:2em;
+    letter-spacing: 0.1em
+}
+
+.header img{
+    width:273px; 
+    height:214px;
+
+}
+#wrap {
+    min-height:100%;
+    height:auto !important;
+    height:100%;    
+    margin: 0 auto -100px;
+}
+
+.navigation{
+    margin-left:33%;
+}
+.nav-pills > li > a, .nav-pills > li > a, .nav-pills > li> a {
+    color: #333 !important;   
+} 
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    color: #fff !important;
+    background-color:#A9CD4F;
+} 
+
+.start-text{
+    text-align: justify;
+    vertical-align: middle;
+    margin-top:20px;
+}
+
+
+.push, .ownfooter{
+    background-image: url('img/footer.gif'); 
+    font-size:1.2em;
+    padding-top:25px;
+    text-align: center;    
+    width:100%; 
+    height:100px; 
+    position:fixed; 
+    bottom:0;
+}
+
+
+a[href^="tel"]:link,
+a[href^="tel"]:visited,
+a[href^="tel"]:hover {
+    text-decoration: none;
+    color: #000;
+    cursor: not-allowed;
+}
+.adress{
+    width:600px;
+    margin:0 auto;
+}
+
+span.leftform{
+    width:100px;
+    display: inline-block;
+    vertical-align:top;
+}
+
+@media only screen and (max-device-width: 960px) {
+    a[href^="tel"]:link,
+    a[href^="tel"]:visited,
+    a[href^="tel"]:hover {
+        text-decoration: underline;
+        color: blue;
+        cursor: pointer;
+    }
+
+
+
+}

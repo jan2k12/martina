@@ -1,0 +1,98 @@
+<?php
+if(isset($_POST['ok']))
+{
+    $to = '';
+    $from = $_POST['email'];
+    if(empty($_POST['email']))
+    {
+        $error[0]="Bitte Email angeben";
+    }
+    
+    if(empty($_POST['name']))
+    {
+        $error[1]="Bitte Namen angeben";
+    }
+    if(empty($_POST['vname']))
+    {
+        $error[2]="Bitte Vornamen angeben";
+    }
+    if(empty($_POST['text']))
+    {
+        $error[3]="Bitte Text angeben";
+    }
+    
+    $subject = "Neue Kontakt Nachricht von Webseite";
+    $body = "Eine Neue Nachricht wurde ueber das Kontakt Formular gesendet,\n\n Name: ".$_POST['name']."\n\n Vorname: ".$_POST['vname']."\n\n Email: ".$_POST['email']."\n\n Nachricht: ".$_POST['text'];
+    mail($to, $subject, $body, "From: ".$from);
+}
+?>
+<html>
+    <head>
+        <title>Martina Hübner-Zehnle Systemische Therapie und Beratung</title>
+
+        <link href="css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="css/pagelayout.css" rel="stylesheet" type="text/css"/> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+    </head>
+    <body>
+
+            <nav class="navbar-static-top header">
+                <div class="container">
+                    <div class="navbar-header navbar-left">
+                        <h1>Martina H&uuml;bner-Zehnle</h1>
+                        <span class="green">Systemische Therapie</span>&nbsp;<span> und Beratung</span> 
+                    </div>
+                    <div class="nav navbar-right">
+                        <img src="img/Logo1_2.png" alt=""/>
+                    </div>
+                </div>
+            </nav>
+        <div id="wrap">
+            <div class="container">
+                <ul class="nav nav-pills">    
+                    <li class="active"><a href="www.google.de">Home</a></li>                          
+                    <li><a href="ueber-mich.phtml">&Uuml;ber mich</a></li>
+                    <li><a href="www.google.de">T&auml;tigkeiten</a></li>
+                    <li><a href="www.google.de">News</a></li>
+                    <li><a href="kontakt.phtml">Kontakt</a></li>
+                </ul>
+            </div>
+            <div class="container">
+                <div class="row start-text">
+                    <div class="col-md-12">
+                        <h2>Kontakt</h2>
+                        
+                        <?php 
+                        if(count($error)>0)
+                        {
+                            echo "<div class='errors'>";
+                            foreach($error as $er)
+                            {
+                                echo "<span class='error'>".$er."</span><br/>";
+                            }
+                            echo "</div>";
+                        }
+                        ?>
+                        <p>Hier können Sie mit mir in Kontakt tretten</p>
+                        <form id="kontaktform" method="post">
+                            <span class="leftform">Name*</span><span class="rightform"><input type="text" name="name" /></span><br/>
+                            <span class="leftform">Vorname* </span><span class="rightform"><input type="text" name="vname" /></span><br/>
+                            <span class="leftform">Email* </span><span class="rightform"><input type="email" name="email" /></span><br/>
+                            <span class="leftform">Text* </span><span class="rightform"><textarea name="text" cols="50" rows="10"></textarea></span><br/>
+                            <input type="submit" name="ok"/>
+                        </form>
+                    </div>
+                </div>
+                <div id="push"></div>
+            </div>
+            <div class="footer">
+                <div class="container">
+                    <div class="col-md-12">
+                      <a href="tel: +497222651498">07222 / 651498</a> - <a href="mailto:m.huebner-zehnle@t-online.de">m.huebner-zehnle@t-online.de</a> - Dörnigstrasse 6 - 76571 Gaggenau
+                    </div>
+                </div>
+            </div>
+    </body>
+</html>
